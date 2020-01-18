@@ -182,8 +182,6 @@ namespace NeoTxAnalysis
         }
         private void processTxs(JToken tx, long index, long time)
         {
-            var vinout = new JArray();
-            //
             var vins = (JArray)tx["vin"];
             tx["vinout"] = vin2pout(vins);
             tx["blockindex"] = index;
