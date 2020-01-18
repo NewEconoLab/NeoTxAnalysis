@@ -167,7 +167,7 @@ namespace NeoTxAnalysis
                 processTxs(txs, index, time);
                 log(index, rh);
                 updateLH(index);
-                if (index - lh > 50000) break;
+                if (index - lh > Const.indexCountLimit) break;
             }
         }
         private void processTxs(JArray txs, long index, long time)
