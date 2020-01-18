@@ -72,7 +72,7 @@ namespace NeoTxAnalysis
                 try
                 {
                     txTask.process();
-                    Thread.Sleep(1000 * 2);
+                    Thread.Sleep(1000 * 5);
                 } catch(Exception ex)
                 {
                     File.AppendAllText("testnet.error.log", ex.ToString());
@@ -102,11 +102,11 @@ namespace NeoTxAnalysis
                 try
                 {
                     txTask.process();
-                    Thread.Sleep(1000 * 2);
+                    Thread.Sleep(1000 * 5);
                 }
                 catch (Exception ex)
                 {
-                    File.AppendAllText("testnet.error.log", ex.ToString());
+                    File.AppendAllText("mainnet.error.log", ex.ToString());
                     Thread.Sleep(1000 * 10);
                 }
             }
