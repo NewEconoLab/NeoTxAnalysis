@@ -20,10 +20,9 @@ namespace NeoTxAnalysis
                     Console.WriteLine("args:" + s);
                 }
             }
-            Console.WriteLine();
             initConfig();
             startRun();
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("finshed!");
         }
 
         static void initConfig()
@@ -34,7 +33,7 @@ namespace NeoTxAnalysis
             Const.mainnet_mongodbConnStr = config["block_mongodbConnStr_testnet"].ToString();
             Const.mainnet_mongoDatabase = config["block_mongodbDatabase_testnet"].ToString();
             Console.WriteLine(Const.testnet_mongodbConnStr);
-            Console.WriteLine();
+            Console.WriteLine(Const.testnet_mongoDatabase);
         }
 
         static void startRun()
@@ -65,7 +64,8 @@ namespace NeoTxAnalysis
                     connDB = Const.testnet_mongoDatabase
                 },
             };
-            while(true)
+            Console.WriteLine("testnet start processing...");
+            while (true)
             {
                 try
                 {
@@ -94,6 +94,7 @@ namespace NeoTxAnalysis
                     connDB = Const.mainnet_mongoDatabase
                 },
             };
+            Console.WriteLine("mainnet start processing...");
             while (true)
             {
                 try
@@ -160,9 +161,9 @@ namespace NeoTxAnalysis
                 var item = queryRes[0];
                 var txs = (JArray)item["tx"];
                 var time = long.Parse(item["time"].ToString());
-                processTxs(txs, index, time);
+                //processTxs(txs, index, time);
                 log(index, rh);
-                updateLH(index);
+                //updateLH(index);
             }
         }
         private void processTxs(JArray txs, long index, long time)
