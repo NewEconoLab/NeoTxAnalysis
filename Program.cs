@@ -32,8 +32,10 @@ namespace NeoTxAnalysis
             Const.testnet_mongoDatabase = config["block_mongodbDatabase_testnet"].ToString();
             Const.mainnet_mongodbConnStr = config["block_mongodbConnStr_mainnet"].ToString();
             Const.mainnet_mongoDatabase = config["block_mongodbDatabase_mainnet"].ToString();
+            Const.indexCountLimit = long.Parse(config["indexCountLimit"].ToString());
             Console.WriteLine(Const.testnet_mongoDatabase);
             Console.WriteLine(Const.mainnet_mongoDatabase);
+            Console.WriteLine(Const.indexCountLimit);
         }
 
         static void startRun()
@@ -117,6 +119,7 @@ namespace NeoTxAnalysis
         public static string testnet_mongoDatabase = "";
         public static string mainnet_mongodbConnStr = "";
         public static string mainnet_mongoDatabase = "";
+        public static long indexCountLimit = 50000;
     }
     class DBInfo {
         public string connStr { get; set; }
@@ -164,6 +167,7 @@ namespace NeoTxAnalysis
                 processTxs(txs, index, time);
                 log(index, rh);
                 updateLH(index);
+                if (index - lh > 50000) break;
             }
         }
         private void processTxs(JArray txs, long index, long time)
