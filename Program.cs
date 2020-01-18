@@ -161,9 +161,9 @@ namespace NeoTxAnalysis
                 var item = queryRes[0];
                 var txs = (JArray)item["tx"];
                 var time = long.Parse(item["time"].ToString());
-                //processTxs(txs, index, time);
+                processTxs(txs, index, time);
                 log(index, rh);
-                //updateLH(index);
+                updateLH(index);
             }
         }
         private void processTxs(JArray txs, long index, long time)
