@@ -30,10 +30,10 @@ namespace NeoTxAnalysis
             var config = JObject.Parse(File.ReadAllText("config.json"));
             Const.testnet_mongodbConnStr = config["block_mongodbConnStr_testnet"].ToString();
             Const.testnet_mongoDatabase = config["block_mongodbDatabase_testnet"].ToString();
-            Const.mainnet_mongodbConnStr = config["block_mongodbConnStr_testnet"].ToString();
-            Const.mainnet_mongoDatabase = config["block_mongodbDatabase_testnet"].ToString();
-            Console.WriteLine(Const.testnet_mongodbConnStr);
+            Const.mainnet_mongodbConnStr = config["block_mongodbConnStr_mainnet"].ToString();
+            Const.mainnet_mongoDatabase = config["block_mongodbDatabase_mainnet"].ToString();
             Console.WriteLine(Const.testnet_mongoDatabase);
+            Console.WriteLine(Const.mainnet_mongoDatabase);
         }
 
         static void startRun()
