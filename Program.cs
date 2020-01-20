@@ -40,8 +40,8 @@ namespace NeoTxAnalysis
 
         static void startRun()
         {
-            var t1 = Task.Run(startRunTestnet);
-            var t2 = Task.Run(startRunMainnet);
+            var t1 = Task.Run(() => startRunTestnet());
+            var t2 = Task.Run(() => startRunMainnet());
             while(true)
             {
                 try
