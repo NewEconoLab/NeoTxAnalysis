@@ -46,9 +46,9 @@ namespace NeoTxAnalysis
             {
                 try
                 {
-                    Thread.Sleep(1000 * 60);
-                    Console.WriteLine("testnet.status:" + t1.Status);
-                    Console.WriteLine("mainnet.status:" + t2.Status);
+                    Thread.Sleep(1000 * 10);
+                    //Console.WriteLine("testnet.status:" + t1.Status);
+                    //Console.WriteLine("mainnet.status:" + t2.Status);
                 }
                 catch
                 {
